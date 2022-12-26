@@ -12,15 +12,23 @@ const AppMentor = () => {
 
   const nameSwitch = () => {
     const changeName = prompt("What are you going to switch mentor's name to?");
-    const updatedName = { ...person };
-    updatedName.mentor.name = changeName;
-    setPerson(updatedName);
+    setPerson((person) => ({
+      ...person,
+      mentor: { ...person.mentor, name: changeName },
+    })); // 반드시 괄호를 써야 한다.
+    // const updatedName = { ...person };
+    // updatedName.mentor.name = changeName;
+    // setPerson(updatedName);
   };
 
   const titleSwitch = () => {
     const changeTitle = prompt(
       "What are you going to switch mentor's title to?"
     );
+    setPerson((person) => ({
+      ...person,
+      mentor: { ...person.mentor, title: changeTitle },
+    })); // 반드시 괄호를 써야 한다.
     const updatedTitle = { ...person };
     updatedTitle.mentor.title = changeTitle;
     setPerson(updatedTitle);
